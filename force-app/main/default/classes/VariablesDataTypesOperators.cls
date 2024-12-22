@@ -18,7 +18,7 @@
  * If statements are not specifically covered in the lesson this module, but review module 2 flow control section for an overview if needed.
  * Resources: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/langCon_apex_if_else.htm 
  * 
- * @author Your Name
+ * @author Lindsey Giles
  */
 
 public with sharing class VariablesDataTypesOperators {
@@ -32,8 +32,16 @@ public with sharing class VariablesDataTypesOperators {
      * @return The sum of the two numbers, or null if either number is null.
      */
     public static Integer addition(Integer a, Integer b) {  
-        return null; // Replace null with the variable you used to store the result
-    }
+        // Check if either number is null
+        if (a == null || b == null){
+            return null; // Return null if any of inputs are null
+        }
+        // Add inputs
+        Integer sum = a + b;
+        // Return the sum
+        return sum;
+        }
+    
 
     /**
      * Question 2
@@ -44,7 +52,14 @@ public with sharing class VariablesDataTypesOperators {
      * @return The difference between the two numbers.
      */
     public static Integer subtraction(Integer a, Integer b) {
-        return null; // Replace null with the variable you used to store the result
+        // Check if either number is null
+        if (a == null || b== null) {
+            return null; // Return null if any of inputs are null
+        }
+        // Subtract inputs
+        Integer diff = a - b;
+        // Return the difference
+        return diff;
     }
 
     /**
@@ -56,7 +71,14 @@ public with sharing class VariablesDataTypesOperators {
      * @return The product of the two numbers.
      */
     public static Integer multiplication(Integer a, Integer b) {
-        return null; // Replace null with the variable you used to store the result
+        // Check if either input is null
+        if (a == null || b == null) {
+            return null; // Returns null if any inputs are null
+        }
+        // Multiply inputs
+        Integer product = a * b;
+        // Return the product
+        return product;
     }
 
     /**
@@ -69,7 +91,18 @@ public with sharing class VariablesDataTypesOperators {
      * @return The quotient of the division, or 0 if the denominator is zero.
      */
     public static Decimal division(Integer a, Integer b) {
-        return null; // Replace null with the variable you used to store the result
+        // Check if either input is null
+        if (a == null || b == null) {
+            return null; // Returns null if any inputs are null
+        }
+        // Check if the denominator is zero
+        if ( b == 0) {
+            return 0; // Return 0 to avoid division by zero error
+        }
+        // Divide inputs
+        Decimal quotient = a / b;
+        // Return the quotient
+        return quotient;
     }
 
     /**
@@ -83,7 +116,17 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the number is even, False otherwise.
      */
     public static Boolean isEven(Integer num) {
-        return null; // Replace null with the variable you used to store the result
+        // Check if input is null
+        if (num == null) {
+            return null; // Returns null if input is null
+        }
+        // Check if the number is even
+        if (num % 2 == 0){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**
@@ -94,7 +137,12 @@ public with sharing class VariablesDataTypesOperators {
      * @return true if the number is positive, false otherwise.
      */
     public static Boolean isPositive(Integer num) {
-        return null; // Replace null with the variable you used to store the result
+        // Check if input is null
+        if (num == null) {
+            return null; // Returns null if input is null
+        }
+        // Check if number is positive
+        return num > 0;
     }
 
     /**
@@ -106,7 +154,12 @@ public with sharing class VariablesDataTypesOperators {
      * @return The concatenated string.
      */
     public static String concatenateStrings(String str1, String str2) {
-        return null; // Replace null with the variable you used to store the result
+        // If inputs are null, treat as an empty string
+        if (str1 == null) str1 = '';
+        if (str2 == null) str2 = '';
+        // Concatenate strings
+        String str3 = str1 + str2;
+        return str3; 
     }
 
 	/**
