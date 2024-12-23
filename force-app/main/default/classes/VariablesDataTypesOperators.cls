@@ -249,7 +249,12 @@ public with sharing class VariablesDataTypesOperators {
      * @return The average of the three numbers.
      */
     public static Double averageOfThreeNumbers(Integer a, Integer b, Integer c) {
-        return null; // Replace null with the variable you used to store the result
+        if (a == null || b == null || c == null) {
+            return null;
+        }
+        // Calculate average of three numbers
+        Double average = (a + b + c) / 3.0;
+        return average;
     }
 
     /**
@@ -264,10 +269,10 @@ public with sharing class VariablesDataTypesOperators {
      */
     public static Integer adjustOrderOfOperations1(Integer a, Integer b, Integer c) {
         // Add parentheses around the addition operation so that it is performed before multiplication
-        Integer result = a + b * c;
+        Integer result = (a + b) * c;
 
         // Return the result
-        return null; // Replace null with the variable you used to store the result
+        return result; 
     }
 
     /**
