@@ -121,7 +121,7 @@ public with sharing class VariablesDataTypesOperators {
             return null; // Returns null if input is null
         }
         // Check if the number is even
-        if (num % 2 == 0){
+        if (Math.mod(num, 2) == 0){
             return true;
         }
         else {
@@ -234,7 +234,7 @@ public with sharing class VariablesDataTypesOperators {
             return null;
         }
         // Convert number of minutes to milliseconds
-        Integer milliseconds = minutes * MILLISECONDS_PER_MINUTE;;
+        Integer milliseconds = minutes * MILLISECONDS_PER_MINUTE;
         return milliseconds;
     }    
 
@@ -420,3 +420,4 @@ public with sharing class VariablesDataTypesOperators {
         return totalCost; 
     }
 }
+    }
