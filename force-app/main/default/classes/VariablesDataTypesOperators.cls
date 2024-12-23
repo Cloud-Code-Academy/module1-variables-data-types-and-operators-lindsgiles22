@@ -281,11 +281,8 @@ public with sharing class VariablesDataTypesOperators {
      * @return The result of the expression after modifications.
      */
     public static Integer adjustOrderOfOperations2() {
-        // Add parentheses in the below expression to change the result.
-        // The result of the expression as it is right now is 43. 
-        // You should add parentheses so that the result of the expression becomes 8.
-        Integer answer = 48 - 15 + 5 * 2;
-        return null; // Replace null with the variable you used to store the result
+        Integer answer = (48 - (15 + 5)) * 2;
+        return answer;
     }
 
     /**
@@ -303,10 +300,13 @@ public with sharing class VariablesDataTypesOperators {
      * @return The result of the adjusted arithmetic expression.
      */
     public static Double complexOrderOfOperations(Integer a, Integer b, Integer c, Integer d, Integer e) {
+        if (a == null || b == null || c == null || d == null || e == null) {
+            return null;
+        }
         // Add parentheses around the multiplication and subtraction operations so that they are performed before division and addition
-        Double result = a * b - c / (Double) d + e;
+        Double result = ((a * b) - c) / (Double) d + e;
 
-        return null; // Replace null with the variable you used to store the result
+        return result; 
     }
 
     /**
@@ -320,8 +320,13 @@ public with sharing class VariablesDataTypesOperators {
         final Double SUBTRACT_FACTOR = 32.0;
         final Double MULTIPLY_FACTOR = 5.0;
         final Double DIVIDE_FACTOR = 9.0;
-    
-        return null; // Replace null with the variable you used to store the result
+        
+        if (fahrenheit == null) {
+            return null;
+        }
+        // Convert the Fahrenheit temperature to Celsius 
+        Double celsius = (fahrenheit - SUBTRACT_FACTOR) * MULTIPLY_FACTOR / DIVIDE_FACTOR;
+        return celsius;
     }
 
     
@@ -337,10 +342,15 @@ public with sharing class VariablesDataTypesOperators {
      */
     public static Integer performDivisionAndCast(Double a, Double b) {
         // Perform the division and cast (round down) off the result.
-        Double divisionResult = null;
+        Double divisionResult = a / b;
 
         // Write the code for type casting the divisionResult to an Integer
-        Integer roundedResult = null;
+        Integer roundedResult = (Integer)(divisionResult);
+        return roundedResult;
+    }
+
+    /**
+     * Question 18;
         return null; // Replace null with the variable you used to store the result
     }
 
@@ -354,9 +364,15 @@ public with sharing class VariablesDataTypesOperators {
      * @return A Decimal representing the weekly paycheck.
      */
     public static Decimal calculateWeeklyPaycheck(Decimal hourlyRate, Double numberOfHours) {
+        // Check for null inputs
+        if (hourlyRate == null || numberOfHours == null) {
+            return null;
         // Calculate the weekly paycheck using the formula: rate multiplied by hours
-        return null; // Replace null with the variable you used to store the result
-    }
+        Decimal weeklyPaycheck = hourlyRate * numberOfHours;
+        
+        return weeklyPaycheck;
+        }
+                
 
     /**
      * Question 19
@@ -369,7 +385,19 @@ public with sharing class VariablesDataTypesOperators {
      * @return A Decimal representing the monthly paycheck.
      */
     public static Decimal calculateMonthlyPaycheck(Decimal hourlyRate, Double numberOfHours) {
-        return null; // Replace null with the variable you used to store the result
+        // Check for null inputs
+        if (hourlyrate == null || numberOfHours == null) {
+            return null;
+        }
+        // Calculate the weekly paycheck first
+        Decimal weeklyPaycheck = calculateWeeklyPaycheck(hourlyRate, numberOfHours);
+
+        // If weekly paycheck is null, return null
+        if (weeklyPaycheck == null) {
+            return null;
+        // Calculate the monthly pacheck using the formula: weekly paycheck multiplied by 4
+        Decimal monthlyPaycheck = weeklyPaycheck * 4;
+        return monthlyPaycheck; 
     }
 
     /**
@@ -383,6 +411,12 @@ public with sharing class VariablesDataTypesOperators {
      * @return The total cost after applying the sales tax.
      */
     public static Decimal calculateTotalCost(Decimal pricePerUnit, Integer numberOfUnits, Decimal salesTaxRate) {
-        return null; // Replace null with the variable you used to store the result
+        // Check for null inputs
+        if (pricePerUnit == null || numberOfUnits == null || salesTaxRate == null) {
+            return null;
+        }
+        // Calculate total cost based on price per unit, number of units, and a sales tax rate
+        Decimal totalCost = (pricePerUnit * numberOfUnits) * (1 + salesTaxRate);
+        return totalCost; 
     }
 }
