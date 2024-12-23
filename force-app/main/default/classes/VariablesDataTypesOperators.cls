@@ -193,7 +193,12 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the date is in the past, False otherwise.
      */
     public static Boolean isDateInPast(Date dt) {
-        return null; // Replace null with the variable you used to store the result
+        // Check for null input
+        if (dt == null) {
+            return null;
+        }
+        // Return true if the date is in the past, false otherwise
+        return dt < Date.today();
     }
 
     /**
@@ -206,7 +211,12 @@ public with sharing class VariablesDataTypesOperators {
      * @return True if the date is today or in the future, False otherwise.
      */
     public static Boolean isDateTodayOrFuture(Date dt) {
-        return null; // Replace null with the variable you used to store the result
+        // Check for null input
+        if (dt == null) {
+            return null;
+        }
+        // Return true if the date is today or in the future, false otherwise
+        return dt >= Date.today();
     }
 
     /**
@@ -219,9 +229,13 @@ public with sharing class VariablesDataTypesOperators {
      * @return The number of milliseconds equivalent to the given number of minutes.
      */
     public static Integer convertMinutesToMilliseconds(Integer minutes) {
-        Integer MILLISECONDS_PER_MINUTE = null; // Make this value a constant
-        Integer milliseconds;
-        return null; // Replace null with the variable you used to store the result
+        Integer MILLISECONDS_PER_MINUTE = 60000; 
+        if (minutes == null) {
+            return null;
+        }
+        // Convert number of minutes to milliseconds
+        Integer milliseconds = minutes * MILLISECONDS_PER_MINUTE;;
+        return milliseconds;
     }    
 
     /**
