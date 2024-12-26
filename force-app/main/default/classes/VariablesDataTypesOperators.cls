@@ -371,13 +371,14 @@ public with sharing class VariablesDataTypesOperators {
         // Check for null inputs
         if (hourlyRate == null || numberOfHours == null) {
             return null;
+        }
         // Calculate the weekly paycheck using the formula: rate multiplied by hours
         Decimal weeklyPaycheck = hourlyRate * numberOfHours;
         
         return weeklyPaycheck;
         }
                 
-    }
+
     /**
      * Question 19
      * Calculate the weekly and monthly paycheck based on hourly rate and number of hours.
@@ -399,11 +400,12 @@ public with sharing class VariablesDataTypesOperators {
         // If weekly paycheck is null, return null
         if (weeklyPaycheck == null) {
             return null;
+        }
         // Calculate the monthly paycheck using the formula: weekly paycheck multiplied by 4
         Decimal monthlyPaycheck = weeklyPaycheck * 4;
         return monthlyPaycheck; 
     }
-}
+
 
     /**
      * Question 20
