@@ -373,7 +373,8 @@ public with sharing class VariablesDataTypesOperators {
             return null;
         }
         // Calculate the weekly paycheck using the formula: rate multiplied by hours
-        Decimal weeklyPaycheck = hourlyRate * numberOfHours;
+        Decimal weeklyPaycheck = hourlyRate * Decimal.valueOf(numberOfHours);
+        
         return weeklyPaycheck;
         }
                 
