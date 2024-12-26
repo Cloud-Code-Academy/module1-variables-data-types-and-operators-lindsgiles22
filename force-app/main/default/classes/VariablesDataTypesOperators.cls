@@ -22,7 +22,7 @@
  */
 
 public with sharing class VariablesDataTypesOperators {
-    /**
+     /**
      * Question 1
      * Performs addition of two numbers.
      * If either of the numbers is null, return null.
@@ -100,7 +100,7 @@ public with sharing class VariablesDataTypesOperators {
             return 0; // Return 0 to avoid division by zero error
         }
         // Divide inputs
-        Decimal quotient = a / b;
+        Decimal quotient = Decimal.valueOf(a) / Decimal.valueOf(b);
         // Return the quotient
         return quotient;
     }
@@ -155,8 +155,12 @@ public with sharing class VariablesDataTypesOperators {
      */
     public static String concatenateStrings(String str1, String str2) {
         // If inputs are null, treat as an empty string
-        if (str1 == null) str1 = '';
-        if (str2 == null) str2 = '';
+        if (str1 == null) {
+            str1 = '';
+        }
+        if (str2 == null) {
+            str2 = '';
+        }
         // Concatenate strings
         String str3 = str1 + str2;
         return str3; 
@@ -229,7 +233,7 @@ public with sharing class VariablesDataTypesOperators {
      * @return The number of milliseconds equivalent to the given number of minutes.
      */
     public static Integer convertMinutesToMilliseconds(Integer minutes) {
-        Integer MILLISECONDS_PER_MINUTE = 60000; 
+        Integer MILLISECONDS_PER_MINUTE = 60000;    
         if (minutes == null) {
             return null;
         }
@@ -373,7 +377,7 @@ public with sharing class VariablesDataTypesOperators {
         return weeklyPaycheck;
         }
                 
-
+    }
     /**
      * Question 19
      * Calculate the weekly and monthly paycheck based on hourly rate and number of hours.
@@ -386,7 +390,7 @@ public with sharing class VariablesDataTypesOperators {
      */
     public static Decimal calculateMonthlyPaycheck(Decimal hourlyRate, Double numberOfHours) {
         // Check for null inputs
-        if (hourlyrate == null || numberOfHours == null) {
+        if (hourlyRate == null || numberOfHours == null) {
             return null;
         }
         // Calculate the weekly paycheck first
@@ -395,10 +399,11 @@ public with sharing class VariablesDataTypesOperators {
         // If weekly paycheck is null, return null
         if (weeklyPaycheck == null) {
             return null;
-        // Calculate the monthly pacheck using the formula: weekly paycheck multiplied by 4
+        // Calculate the monthly paycheck using the formula: weekly paycheck multiplied by 4
         Decimal monthlyPaycheck = weeklyPaycheck * 4;
         return monthlyPaycheck; 
     }
+}
 
     /**
      * Question 20
@@ -420,4 +425,4 @@ public with sharing class VariablesDataTypesOperators {
         return totalCost; 
     }
 }
-    }
+    
