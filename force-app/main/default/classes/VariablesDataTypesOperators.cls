@@ -362,23 +362,15 @@ public with sharing class VariablesDataTypesOperators {
      * @param numberOfHours The number of hours worked in a week.
      * @return A Decimal representing the weekly paycheck.
      */
-    public static Decimal calculateMonthlyPaycheck(Decimal hourlyRate, Double numberOfHours) {
-        // Check for null inputs or invalid number of hours
-        if (hourlyRate == null || numberOfHours == null || numberOfHours <= 0) {
+    public static Decimal calculateWeeklyPaycheck(Decimal hourlyRate, Double numberOfHours) {
+        // Ensure valid input: hourlyRate should be > 0, numberOfHours should be positive
+        if (hourlyRate <= 0 || numberOfHours <= 0) {
             return 0.0; // Return 0.0 if invalid input
         }
-    
-        // Calculate the weekly paycheck first
-        Decimal weeklyPaycheck = calculateWeeklyPaycheck(hourlyRate, numberOfHours);
-    
-        // Check if weekly paycheck is 0 or invalid, return 0.0 if true
-        if (weeklyPaycheck == 0.0) {
-            return 0.0;
-        }
-    
-        // Calculate the monthly paycheck using the formula: weekly paycheck multiplied by 4
-        Decimal monthlyPaycheck = weeklyPaycheck * 4;
-        return monthlyPaycheck; // Return the calculated monthly paycheck
+        
+        // Calculate the weekly paycheck using the formula: rate multiplied by hours
+        Decimal weeklyPaycheck = hourlyRate * Decimal.valueOf(numberOfHours);
+        return weeklyPaycheck; // Return the calculated paycheck
     }
                 
 
@@ -393,21 +385,23 @@ public with sharing class VariablesDataTypesOperators {
      * @return A Decimal representing the monthly paycheck.
      */
     public static Decimal calculateMonthlyPaycheck(Decimal hourlyRate, Double numberOfHours) {
-        // Check for null inputs
-        if (hourlyRate == null || numberOfHours == null || numberOfHours <= 0){
-            return 0.0;
+        // Ensure valid input: hourlyRate should be > 0, numberOfHours should be positive
+        if (hourlyRate <= 0 || numberOfHours <= 0) {
+            return 0.0; // Return 0.0 if invalid input
         }
+    
         // Calculate the weekly paycheck first
         Decimal weeklyPaycheck = calculateWeeklyPaycheck(hourlyRate, numberOfHours);
-
-        // If weekly paycheck is null, return null
-        if (weeklyPaycheck == null || weeklyPaycheck == 0.0){
+    
+        // Check if weekly paycheck is 0, return 0.0 if true
+        if (weeklyPaycheck == 0.0) {
             return 0.0;
         }
-        
+        // Calculate the monthly paycheck using the formula: weekly paycheck multiplied by 4
         Decimal monthlyPaycheck = weeklyPaycheck * 4;
-        return monthlyPaycheck; 
+        return monthlyPaycheck; // Return the calculated monthly paycheck
     }
+    
 
 
     /**
