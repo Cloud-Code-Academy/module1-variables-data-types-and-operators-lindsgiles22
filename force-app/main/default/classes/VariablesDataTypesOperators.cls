@@ -363,9 +363,10 @@ public with sharing class VariablesDataTypesOperators {
      * @return A Decimal representing the weekly paycheck.
      */
     public static Decimal calculateWeeklyPaycheck(Decimal hourlyRate, Double numberOfHours) {
-        // Ensure valid input: hourlyRate should be > 0, numberOfHours should be positive
-        if (hourlyRate <= 0 || numberOfHours <= 0) {
-            return 0.0; // Return 0.0 if invalid input
+        Decimal weeklyPaycheck;
+            // Ensure valid input: hourlyRate should be > 0, numberOfHours should be positive
+            if (hourlyRate <= 0 || numberOfHours <= 0) {
+                return weeklyPaycheck = 0.0; // Return 0.0 if invalid input
         }
         
         // Calculate the weekly paycheck using the formula: rate multiplied by hours
@@ -385,9 +386,11 @@ public with sharing class VariablesDataTypesOperators {
      * @return A Decimal representing the monthly paycheck.
      */
     public static Decimal calculateMonthlyPaycheck(Decimal hourlyRate, Double numberOfHours) {
+        final Integer NUMBER_OF_WEEKLY_PAYCHECKS = 4;
+        Decimal monthlyPaycheck;
         // Ensure valid input: hourlyRate should be > 0, numberOfHours should be positive
         if (hourlyRate <= 0 || numberOfHours <= 0) {
-            return 0.0; // Return 0.0 if invalid input
+            return monthlyPaycheck = 0.0; // Return 0.0 if invalid input
         }
     
         // Calculate the weekly paycheck first
@@ -395,10 +398,10 @@ public with sharing class VariablesDataTypesOperators {
     
         // Check if weekly paycheck is 0, return 0.0 if true
         if (weeklyPaycheck == 0.0) {
-            return 0.0;
+            return monthlyPaycheck = 0.0;
         }
         // Calculate the monthly paycheck using the formula: weekly paycheck multiplied by 4
-        Decimal monthlyPaycheck = weeklyPaycheck * 4;
+        Decimal monthlyPaycheck = weeklyPaycheck * NUMBER_OF_WEEKLY_PAYCHECKS;
         return monthlyPaycheck; // Return the calculated monthly paycheck
     }
     
