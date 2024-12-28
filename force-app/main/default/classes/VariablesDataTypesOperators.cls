@@ -370,7 +370,7 @@ public with sharing class VariablesDataTypesOperators {
         }
         
         // Calculate the weekly paycheck using the formula: rate multiplied by hours
-        Decimal weeklyPaycheck = hourlyRate * Decimal.valueOf(numberOfHours);
+        weeklyPaycheck = hourlyRate * Decimal.valueOf(numberOfHours);
         return weeklyPaycheck; // Return the calculated paycheck
     }
                 
@@ -401,7 +401,7 @@ public with sharing class VariablesDataTypesOperators {
             return monthlyPaycheck = 0.0;
         }
         // Calculate the monthly paycheck using the formula: weekly paycheck multiplied by 4
-        Decimal monthlyPaycheck = weeklyPaycheck * NUMBER_OF_WEEKLY_PAYCHECKS;
+        monthlyPaycheck = weeklyPaycheck * NUMBER_OF_WEEKLY_PAYCHECKS;
         return monthlyPaycheck; // Return the calculated monthly paycheck
     }
     
