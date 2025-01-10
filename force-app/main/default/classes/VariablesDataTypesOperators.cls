@@ -100,9 +100,8 @@ public with sharing class VariablesDataTypesOperators {
             return 0; // Return 0 to avoid division by zero error
         }
         // Divide inputs
-        Decimal quotient = Decimal.valueOf(a) / Decimal.valueOf(b);
         // Return the quotient
-        return quotient;
+        return Decimal.valueOf(a) / Decimal.valueOf(b);
     }
 
     /**
@@ -179,7 +178,7 @@ public with sharing class VariablesDataTypesOperators {
 	 */
 	public static String createSentence(String noun, String verb, String endingPunctuation) {
 		// Check for null inputs
-        if (noun == null || verb == null || endingPunctuation == null) {
+        if (noun == null || verb == null) {
         return null; 
 	}
     	// Construct sentence
